@@ -64,9 +64,25 @@ public class TrabalhoDeJava {
         if (menu3 == 1) {
             arquivo.delete();
             
+        }    
+      
+    }  
+    
+    static void LerArquivo(){
+        File arquivo = new File("lucas.txt");
+        
+        try {
+            FileReader ler = new FileReader(arquivo);
+            BufferedReader lerb = new BufferedReader(ler);
+            String linha = lerb.readLine();
+            while (linha != null) {
+                System.out.println(linha);
+                linha = lerb.readLine();                
+            }
+                      
+        } catch (Exception ex) {
+            System.out.println("Não deu!");
         }
-        
-        
         
     }
     
@@ -87,6 +103,7 @@ public class TrabalhoDeJava {
                 System.out.println("1- Criar pasta");
                 System.out.println("2- Apagar pasta");
                 System.out.println("3- Criar um arquivo");
+                System.out.println("4- Ler um arquivo");
                 menu = teclado.nextInt();
                 if (menu == 1) {
                     criaPasta();
@@ -99,6 +116,12 @@ public class TrabalhoDeJava {
                     criarArquivo();
                     
                 }
+                if (menu == 4) {
+                    LerArquivo();
+                    
+                
+            }
+                
             
         } while (menu >5);
     }
